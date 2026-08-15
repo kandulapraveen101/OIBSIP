@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AuthVault - Secure Login and Registration Authentication System featuring SHA-256 password hashing, validation, session management, and protected dashboard.">
+    <title>AuthVault — Secure Authentication System</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Ambient Orbs -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <div class="app-wrapper">
+        <!-- Brand Header -->
+        <header class="app-header">
+            <div class="header-brand">
+                <div class="brand-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="brand-title">AuthVault</h1>
+                    <p class="brand-subtitle">Secure Client-Side Authentication</p>
+                </div>
+            </div>
+            
+            <div id="auth-status-badge" class="status-badge logged-out">
+                <span class="badge-dot"></span>
+                <span class="badge-text">Guest Mode</span>
+            </div>
+        </header>
+
+        <!-- Main Views Container -->
+        <main class="app-main">
+            <!-- ==========================================
+                 VIEW 1: LOGIN VIEW
+                 ========================================== -->
+            <section id="view-login" class="auth-card-view">
+                <div class="card-header">
+                    <h2 class="card-title">Welcome Back</h2>
+                    <p class="card-subtitle">Sign in to access your protected dashboard</p>
+                </div>
+
+                <!-- Alert Message Box -->
+                <div id="login-error-alert" class="alert alert-error hidden" role="alert">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span id="login-error-text">Invalid credentials. Please try again.</span>
+                </div>
+
+                <form id="login-form" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label for="login-identifier" class="form-label">Username or Email</label>
+                        <div class="input-icon-wrapper">
+                            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <input type="text" id="login-identifier" class="form-input" placeholder="e.g. john_doe or john@example.com" required autocomplete="username">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="label-row">
+                            <label for="login-password" class="form-label">Password</label>
+                        </div>
+                        <div class="input-icon-wrapper">
+                            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required autocomplete="current-password">
+                            <button type="button" class="toggle-password-btn" data-target="login-password" title="Toggle password visibility" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="remember-me" checked>
+                            <span class="custom-checkbox"></span>
+                            <span>Keep me logged in</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" id="login-btn" class="btn btn-primary btn-full">
+                        <span>Sign In</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+
+                    <div class="card-footer">
+                        <p>Don't have an account? <a href="#" id="link-to-register" class="link-btn">Create one now</a></p>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ==========================================
+                 VIEW 2: REGISTRATION VIEW
+                 ========================================== -->
+            <section id="view-register" class="auth-card-view hidden">
+                <div class="card-header">
+                    <h2 class="card-title">Create Account</h2>
+                    <p class="card-subtitle">Register to join AuthVault secure network</p>
+                </div>
+
+                <!-- Alert Message Box -->
+                <div id="register-error-alert" class="alert alert-error hidden" role="alert">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <span id="register-error-text">Registration error</span>
+                </div>
+
+                <form id="register-form" class="auth-form" novalidate>
+                    <div class="form-group">
+                        <label for="register-username" class="form-label">Username</label>
+                        <div class="input-icon-wrapper">
+                            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <input type="text" id="register-username" class="form-input" placeholder="Choose a unique username" required autocomplete="username" minlength="3">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email" class="form-label">Email Address</label>
+                        <div class="input-icon-wrapper">
+                            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <input type="email" id="register-email" class="form-input" placeholder="name@domain.com" required autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password" class="form-label">Password</label>
+                        <div class="input-icon-wrapper">
+                            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <input type="password" id="register-password" class="form-input" placeholder="At least 8 chars &amp; 1 number" required autocomplete="new-password">
+                            <button type="button" class="toggle-password-btn" data-target="register-password" title="Toggle password visibility" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                <svg class="eye-off-icon hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+                            </button>
+                        </div>
+
+                        <!-- Live Password Strength Meter -->
+                        <div class="strength-meter-container">
+                            <div class="strength-bar"><div id="strength-bar-fill" class="strength-fill"></div></div>
+                            <div class="strength-text-row">
+                                <span class="strength-label">Password Strength:</span>
+                                <span id="strength-value" class="strength-value">None</span>
+                            </div>
+                        </div>
+
+                        <ul class="rule-checklist">
+                            <li id="rule-length" class="rule-item invalid">
+                                <span class="rule-icon">✕</span> Minimum 8 characters
+                            </li>
+                            <li id="rule-number" class="rule-item invalid">
+                                <span class="rule-icon">✕</span> At least 1 number (0-9)
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button type="submit" id="register-btn" class="btn btn-primary btn-full">
+                        <span>Register Account</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </button>
+
+                    <div class="card-footer">
+                        <p>Already registered? <a href="#" id="link-to-login" class="link-btn">Sign in here</a></p>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ==========================================
+                 VIEW 3: PROTECTED DASHBOARD VIEW
+                 ========================================== -->
+            <section id="view-dashboard" class="auth-card-view dashboard-view hidden">
+                <div class="dashboard-banner">
+                    <div class="user-avatar" id="dash-avatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name-row">
+                            <h2 id="dash-username" class="user-name">User</h2>
+                            <span class="role-pill">Verified Member</span>
+                        </div>
+                        <p id="dash-email" class="user-email">user@example.com</p>
+                    </div>
+                    <button id="logout-btn" class="btn btn-danger">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                        <span>Logout</span>
+                    </button>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="grid-card security-card">
+                        <div class="card-icon-header">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            <h3>Security &amp; Encryption Info</h3>
+                        </div>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-key">Password Hash Engine:</span>
+                                <span class="info-value highlight">SHA-256 (Web Crypto API)</span>
+                            </li>
+                            <li>
+                                <span class="info-key">Salt Protection:</span>
+                                <span class="info-value">Unique Per-User Salt</span>
+                            </li>
+                            <li>
+                                <span class="info-key">Session Token:</span>
+                                <span id="dash-session-token" class="info-value code-text">token_xyz</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid-card profile-card">
+                        <div class="card-icon-header">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <h3>Account Overview</h3>
+                        </div>
+                        <ul class="info-list">
+                            <li>
+                                <span class="info-key">Registered Date:</span>
+                                <span id="dash-created-at" class="info-value">Today</span>
+                            </li>
+                            <li>
+                                <span class="info-key">Last Login:</span>
+                                <span id="dash-last-login" class="info-value">Just now</span>
+                            </li>
+                            <li>
+                                <span class="info-key">Session Status:</span>
+                                <span class="info-value status-active">● Active &amp; Protected</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="protected-content-box">
+                    <div class="lock-icon-badge">🔒</div>
+                    <h3>Protected Content Unlocked</h3>
+                    <p>You have successfully authenticated! This view is guarded by session state validation. Attempting to navigate directly without a valid token will automatically redirect to the login page.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>AuthVault • Client-side SHA-256 Authentication &amp; Protected Route Guard</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="toast-container" aria-live="assertive"></div>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
