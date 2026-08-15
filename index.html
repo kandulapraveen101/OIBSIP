@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precision Calc | Modern Web Calculator</title>
+  <meta name="description" content="A sleek, modern browser-based calculator built with Vanilla HTML5, CSS3 Grid, and JavaScript.">
+  <!-- Modern Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <div class="app-background">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+  </div>
+
+  <main class="calculator-container">
+    <!-- Header / Control Bar -->
+    <header class="calculator-header">
+      <div class="brand">
+        <span class="brand-icon">⚡</span>
+        <h1 class="brand-name">CalcNova</h1>
+      </div>
+      <div class="header-actions">
+        <button id="soundToggle" class="icon-btn" aria-label="Toggle Sound Effects" title="Sound Effects">
+          <svg id="soundIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+        </button>
+        <button id="themeToggle" class="icon-btn" aria-label="Toggle Theme" title="Switch Theme">
+          <svg id="themeIcon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <button id="historyToggle" class="icon-btn" aria-label="Toggle Calculation History" title="History">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Calculator Screen Display -->
+    <section class="display-screen" aria-live="polite">
+      <!-- Upper expression line -->
+      <div id="expressionDisplay" class="expression-line"></div>
+      <!-- Lower main result / input line -->
+      <div id="mainDisplay" class="main-line">0</div>
+      <!-- Floating Error Callout Banner -->
+      <div id="errorMessage" class="error-banner hidden" role="alert">
+        <span class="error-icon">⚠️</span>
+        <span id="errorText">Cannot divide by zero</span>
+      </div>
+    </section>
+
+    <!-- Calculator Button Keypad (CSS Grid) -->
+    <section class="keypad-grid" id="keypad">
+      <!-- Row 1 -->
+      <button type="button" class="btn btn-function" data-action="clear" aria-label="Clear All">AC</button>
+      <button type="button" class="btn btn-function" data-action="backspace" aria-label="Backspace">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 4H8l-7 8 7 8h13a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+          <line x1="18" y1="9" x2="12" y2="15"></line>
+          <line x1="12" y1="9" x2="18" y2="15"></line>
+        </svg>
+      </button>
+      <button type="button" class="btn btn-function" data-action="percent" aria-label="Percentage">%</button>
+      <button type="button" class="btn btn-operator" data-operator="÷" aria-label="Divide">÷</button>
+
+      <!-- Row 2 -->
+      <button type="button" class="btn btn-num" data-number="7">7</button>
+      <button type="button" class="btn btn-num" data-number="8">8</button>
+      <button type="button" class="btn btn-num" data-number="9">9</button>
+      <button type="button" class="btn btn-operator" data-operator="×" aria-label="Multiply">×</button>
+
+      <!-- Row 3 -->
+      <button type="button" class="btn btn-num" data-number="4">4</button>
+      <button type="button" class="btn btn-num" data-number="5">5</button>
+      <button type="button" class="btn btn-num" data-number="6">6</button>
+      <button type="button" class="btn btn-operator" data-operator="−" aria-label="Subtract">−</button>
+
+      <!-- Row 4 -->
+      <button type="button" class="btn btn-num" data-number="1">1</button>
+      <button type="button" class="btn btn-num" data-number="2">2</button>
+      <button type="button" class="btn btn-num" data-number="3">3</button>
+      <button type="button" class="btn btn-operator" data-operator="+" aria-label="Add">+</button>
+
+      <!-- Row 5 -->
+      <button type="button" class="btn btn-function" data-action="negate" aria-label="Plus or Minus">±</button>
+      <button type="button" class="btn btn-num" data-number="0">0</button>
+      <button type="button" class="btn btn-num" data-action="decimal" aria-label="Decimal point">.</button>
+      <button type="button" class="btn btn-equals" data-action="equals" aria-label="Calculate Equals">=</button>
+    </section>
+
+    <!-- Calculation History Side Drawer -->
+    <aside id="historyPanel" class="history-panel hidden">
+      <div class="history-header">
+        <h2>Calculation History</h2>
+        <button id="clearHistoryBtn" class="clear-history-btn">Clear</button>
+      </div>
+      <ul id="historyList" class="history-list">
+        <li class="empty-history">No past calculations</li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="app-footer">
+    <p>Keyboard Supported • Built with HTML5, CSS Grid &amp; Vanilla JS</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
