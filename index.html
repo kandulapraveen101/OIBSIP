@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikola Tesla — Architect of the Electrical Age | Tribute</title>
+    <meta name="description" content="A tribute to Nikola Tesla, visionary inventor, electrical engineer, and pioneer of alternating current power, radio, and wireless energy.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Electric Arc Background Particle Container -->
+    <div class="ambient-glow" aria-hidden="true"></div>
+
+    <!-- Header Navigation -->
+    <header class="site-header" id="top">
+        <div class="container header-content">
+            <a href="#top" class="logo">
+                <span class="spark-icon"><i class="fa-solid fa-bolt"></i></span>
+                <span class="logo-text">TESLA<span class="logo-accent">.TRIBUTE</span></span>
+            </a>
+            
+            <nav class="main-nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#hero">Overview</a></li>
+                    <li><a href="#biography">Biography</a></li>
+                    <li><a href="#timeline">Timeline</a></li>
+                    <li><a href="#inventions">Inventions</a></li>
+                    <li><a href="#quotes">Quotes</a></li>
+                    <li><a href="#lab">Spark Lab</a></li>
+                </ul>
+            </nav>
+
+            <button class="theme-toggle-btn" id="sparkToggleBtn" title="Toggle Lightning Arc Ambient Effects">
+                <i class="fa-solid fa-bolt-lightning"></i>
+                <span class="btn-text">Energize</span>
+            </button>
+
+            <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-grid">
+                <div class="hero-text-content">
+                    <div class="badge-pill">
+                        <span class="pulse-dot"></span>
+                        1856 – 1943 • Smiljan to New York
+                    </div>
+                    <h1 class="hero-title">Nikola Tesla</h1>
+                    <p class="hero-tagline">The Architect of the Electrical Age & Visionary Futurist</p>
+                    <p class="hero-lead">
+                        Discover the extraordinary life, groundbreaking polyphase AC power systems, and timeless visionary wireless dreams of the man who lit the modern world.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="#biography" class="btn btn-primary">
+                            <span>Read Full Tribute</span>
+                            <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                        <a href="#timeline" class="btn btn-outline">
+                            <span>View Key Achievements</span>
+                            <i class="fa-solid fa-timeline"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="hero-stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="300">300+</span>
+                            <span class="stat-label">Global Patents</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">3-Phase</span>
+                            <span class="stat-label">AC System Invention</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">Niagara</span>
+                            <span class="stat-label">1st Hydroelectric Plant</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prominent Image Figure -->
+                <div class="hero-image-wrapper">
+                    <figure class="hero-figure" id="tribute-image">
+                        <div class="image-glow-frame">
+                            <img src="assets/tesla_portrait.png" alt="High resolution dramatic portrait of Nikola Tesla" class="hero-img" loading="eager">
+                            <div class="electric-border-glow"></div>
+                        </div>
+                        <figcaption class="hero-figcaption">
+                            <span class="caption-title">Nikola Tesla (c. 1890s)</span>
+                            <span class="caption-desc">Electrical engineer, mechanical engineer, and inventor whose polyphase alternating current power standard revolutionized industrial civilization.</span>
+                            <span class="image-credit"><i class="fa-solid fa-camera"></i> Image source: Generated Tribute Artwork (Royalty-Free / Public Domain Tribute)</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- BIOGRAPHY & TRIBUTE SECTION -->
+        <section class="biography-section" id="biography">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">A Life of Scientific Wonder</span>
+                    <h2 class="section-title">The Life & Legacy of Nikola Tesla</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="bio-grid">
+                    <div class="bio-content-column">
+                        <article class="bio-article">
+                            
+                            <!-- Paragraph 1 -->
+                            <div class="bio-block">
+                                <h3 class="bio-heading"><i class="fa-solid fa-feather-pointed"></i> Early Life & The Spark of Polyphase Genius</h3>
+                                <p>
+                                    Born during a ferocious midnight lightning storm on July 10, 1856, in the village of Smiljan in the Austrian Empire (modern-day Croatia), Nikola Tesla possessed an extraordinary visual imagination and an uncanny photographic memory. Encouraged by his mother, Georgina Mandić—an inventive mind in her own right—Tesla could visualize complex mechanical devices entirely in his mind with microscopic precision before building them. During his studies at the Imperial-Royal Technical College in Graz and the University of Prague, he became captivated by electrical phenomena. While walking through a Budapest park in 1882, the fundamental concept of the <strong>rotating magnetic field</strong> flashed through his mind, giving birth to the polyphase alternating current (AC) motor that would soon transform global industry.
+                                </p>
+                            </div>
+
+                            <!-- Paragraph 2 -->
+                            <div class="bio-block">
+                                <h3 class="bio-heading"><i class="fa-solid fa-bolt-lightning"></i> The War of Currents & The Illumination of Niagara</h3>
+                                <p>
+                                    Arriving in New York City in 1884 with just four cents in his pocket and a letter of recommendation to Thomas Edison, Tesla's relentless intellect quickly collided with Edison's commitment to Direct Current (DC). Recognizing that DC power suffered from severe voltage drop over short distances, Tesla resigned to pursue his vision for Alternating Current. Joining forces with industrialist George Westinghouse, Tesla licensed his revolutionary AC patents, triggering the historic <strong>"War of Currents."</strong> Tesla proved the supreme safety, efficiency, and scalability of AC power by illuminating 100,000 incandescent lamps at the 1893 Chicago World's Fair. Shortly after, Tesla's AC generators harnessed the roaring power of Niagara Falls, establishing the world's first long-distance hydroelectric power plant and laying the electric grid standard still used across the world today.
+                                </p>
+                            </div>
+
+                            <!-- Paragraph 3 -->
+                            <div class="bio-block">
+                                <h3 class="bio-heading"><i class="fa-solid fa-tower-broadcast"></i> High Frequency, Radio Waves, & Wardenclyffe</h3>
+                                <p>
+                                    Unsatisfied with merely lighting cities, Tesla turned his attention to high-frequency electricity, radio control, and wireless energy transmission. In 1891, he created the legendary <strong>Tesla Coil</strong>, a transformer circuit capable of producing millions of volts of high-frequency electrical discharges. At his high-altitude laboratory in Colorado Springs in 1899, Tesla produced artificial lightning bolts over 135 feet long and detected atmospheric stationary waves, convincing him that the Earth itself could act as a conductor for global energy. This culminated in his audacious project at Shoreham, Long Island: the 187-foot <strong>Wardenclyffe Tower</strong>. Tesla envisioned a worldwide wireless system capable of broadcasting news, music, stock reports, secure messages, and clean electrical power across continents without wires.
+                                </p>
+                            </div>
+
+                            <!-- Paragraph 4 -->
+                            <div class="bio-block">
+                                <h3 class="bio-heading"><i class="fa-solid fa-infinity"></i> Enduring Legacy & Modern Resonance</h3>
+                                <p>
+                                    Though financial hardships and corporate rivalries overshadowed Tesla's later years in New York City, history eventually restored his rightful place among humanity's greatest intellects. In 1943, the United States Supreme Court formally recognized Nikola Tesla as the true inventor of radio, invalidating key radio patents held by Guglielmo Marconi. Today, the International System of Units measures magnetic flux density in units named <strong>"Teslas" (T)</strong>. From remote control, robotics, neon lighting, and radar to modern electric vehicles and wireless communication, Tesla's groundbreaking discoveries remain the beating heart of 21st-century technological civilization.
+                                </p>
+                            </div>
+
+                        </article>
+                    </div>
+
+                    <!-- Secondary Lab Image Card -->
+                    <div class="bio-sidebar-column">
+                        <div class="lab-card">
+                            <div class="lab-card-image-wrapper">
+                                <img src="assets/tesla_lab.png" alt="Tesla's Colorado Springs Laboratory with glowing high-voltage electrical arcs" class="lab-img" loading="lazy">
+                                <div class="image-overlay-badge">
+                                    <i class="fa-solid fa-microscope"></i> Historic Physics Lab
+                                </div>
+                            </div>
+                            <div class="lab-card-body">
+                                <h4>The Colorado Springs Experiment (1899)</h4>
+                                <p>In his high-altitude laboratory, Tesla constructed a massive magnifying transmitter generating 12 million volts of electricity, producing man-made lightning and demonstrating resonance tuned to the Earth's natural frequency.</p>
+                                <ul class="lab-specs-list">
+                                    <li><i class="fa-solid fa-check-double"></i> <strong>Peak Discharge:</strong> 135 feet sparks</li>
+                                    <li><i class="fa-solid fa-check-double"></i> <strong>Key Discovery:</strong> Terrestrial Stationary Waves</li>
+                                    <li><i class="fa-solid fa-check-double"></i> <strong>Patent:</strong> U.S. Patent 645,576</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TIMELINE & KEY ACHIEVEMENTS SECTION -->
+        <section class="timeline-section" id="timeline">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Chronology of Innovation</span>
+                    <h2 class="section-title">Milestones & Key Achievements</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Timeline Filter Buttons -->
+                <div class="timeline-filters" role="tablist" aria-label="Timeline Category Filters">
+                    <button class="filter-btn active" data-filter="all">All Milestones</button>
+                    <button class="filter-btn" data-filter="ac">AC Power Systems</button>
+                    <button class="filter-btn" data-filter="wireless">Wireless & Radio</button>
+                    <button class="filter-btn" data-filter="patents">Major Patents</button>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="timeline-container">
+                    <div class="timeline-line" aria-hidden="true"></div>
+
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item left" data-category="ac">
+                        <div class="timeline-dot"><i class="fa-solid fa-baby"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1856</span>
+                            <h3 class="timeline-title">Birth in Smiljan</h3>
+                            <p>Nikola Tesla is born on July 10 during a violent midnight lightning storm in modern-day Croatia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item right" data-category="ac">
+                        <div class="timeline-dot"><i class="fa-solid fa-rotate"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1882</span>
+                            <h3 class="timeline-title">The Rotating Magnetic Field</h3>
+                            <p>Conceives the principle of the rotating magnetic field while reciting Goethe's <em>Faust</em> in a Budapest park, laying the groundwork for AC motors.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="timeline-item left" data-category="patents ac">
+                        <div class="timeline-dot"><i class="fa-solid fa-gears"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1887 – 1888</span>
+                            <h3 class="timeline-title">AC Motor & Transformer Patents</h3>
+                            <p>Files landmark U.S. patents for polyphase AC motors, generators, and distribution systems, subsequently partnered with George Westinghouse.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 4 -->
+                    <div class="timeline-item right" data-category="wireless patents">
+                        <div class="timeline-dot"><i class="fa-solid fa-bolt"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1891</span>
+                            <h3 class="timeline-title">Invention of the Tesla Coil</h3>
+                            <p>Invents the high-frequency resonant transformer coil, enabling fundamental research into wireless transmission and high-voltage physics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 5 -->
+                    <div class="timeline-item left" data-category="ac">
+                        <div class="timeline-dot"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1893</span>
+                            <h3 class="timeline-title">Chicago World's Fair Triumph</h3>
+                            <p>Westinghouse and Tesla illuminate the World's Columbian Exposition with AC current, winning the War of Currents over Edison's DC power.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 6 -->
+                    <div class="timeline-item right" data-category="ac">
+                        <div class="timeline-dot"><i class="fa-solid fa-water"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1895</span>
+                            <h3 class="timeline-title">Niagara Falls Power Plant</h3>
+                            <p>Designs the world's first large-scale hydroelectric AC power station at Niagara Falls, transmitting electricity to Buffalo 22 miles away.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 7 -->
+                    <div class="timeline-item left" data-category="wireless">
+                        <div class="timeline-dot"><i class="fa-solid fa-ship"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1898</span>
+                            <h3 class="timeline-title">First Teleautomaton (Radio Control)</h3>
+                            <p>Demonstrates the world's first radio-controlled robot boat at Madison Square Garden, introducing the concepts of robotics and remote control.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 8 -->
+                    <div class="timeline-item right" data-category="wireless">
+                        <div class="timeline-dot"><i class="fa-solid fa-broadcast-tower"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1901 – 1905</span>
+                            <h3 class="timeline-title">Wardenclyffe Tower Construction</h3>
+                            <p>Constructs the famous 187-foot wireless communication and energy broadcasting tower at Shoreham, Long Island.</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 9 -->
+                    <div class="timeline-item left" data-category="patents wireless">
+                        <div class="timeline-dot"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="timeline-content">
+                            <span class="timeline-year">1943</span>
+                            <h3 class="timeline-title">Radio Patent Supreme Court Ruling</h3>
+                            <p>U.S. Supreme Court officially rules Tesla as the true inventor of radio technology, upholding his 1897 patent claims.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- MAJOR INVENTIONS GRID -->
+        <section class="inventions-section" id="inventions">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Pioneering Marvels</span>
+                    <h2 class="section-title">Key Inventions & Patents</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="inventions-grid">
+                    
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-charging-station"></i></div>
+                        <h3 class="card-title">Polyphase AC System</h3>
+                        <p class="card-desc">Enabled the transmission of high-voltage alternating current across hundreds of miles, providing electrical light and power to modern cities worldwide.</p>
+                        <span class="patent-tag">US Patent 381,968</span>
+                    </div>
+
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                        <h3 class="card-title">The Tesla Coil</h3>
+                        <p class="card-desc">High-frequency air-core resonant transformer producing colossal voltages, essential for medical X-ray machines, radio transmitters, and plasma displays.</p>
+                        <span class="patent-tag">US Patent 454,622</span>
+                    </div>
+
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-tower-cell"></i></div>
+                        <h3 class="card-title">Radio & Wireless Telegraphy</h3>
+                        <p class="card-desc">Pioneered tuned radio circuits and wireless wave propagation principles, laying the foundational mechanics behind modern cellular networks and Wi-Fi.</p>
+                        <span class="patent-tag">US Patent 645,576</span>
+                    </div>
+
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-gamepad"></i></div>
+                        <h3 class="card-title">Teleautomaton (Remote Control)</h3>
+                        <p class="card-desc">Created the birth of robotics by constructing radio-guided mechanism switches for wireless marine navigation and automated devices.</p>
+                        <span class="patent-tag">US Patent 613,809</span>
+                    </div>
+
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <h3 class="card-title">Neon & High Efficiency Lighting</h3>
+                        <p class="card-desc">Developed gas-discharge phosphorescent lamps and high-frequency light tubes decades before commercial neon signs and modern LEDs became commonplace.</p>
+                        <span class="patent-tag">US Patent 497,779</span>
+                    </div>
+
+                    <div class="invention-card">
+                        <div class="card-icon"><i class="fa-solid fa-fan"></i></div>
+                        <h3 class="card-title">Bladeless Tesla Turbine</h3>
+                        <p class="card-desc">A boundary-layer fluid mechanics turbine utilizing smooth discs, achieving exceptional thermal efficiency with minimum mechanical wear.</p>
+                        <span class="patent-tag">US Patent 1,061,206</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- QUOTE BLOCK SECTION -->
+        <section class="quotes-section" id="quotes">
+            <div class="container">
+                <div class="quote-wrapper">
+                    
+                    <div class="quote-symbol-bg" aria-hidden="true">“</div>
+
+                    <div class="quote-carousel" id="quoteCarousel">
+                        
+                        <div class="quote-slide active">
+                            <blockquote class="main-quote">
+                                “If you want to find the secrets of the universe, think in terms of energy, frequency and vibration.”
+                            </blockquote>
+                            <cite class="quote-author">— Nikola Tesla</cite>
+                        </div>
+
+                        <div class="quote-slide">
+                            <blockquote class="main-quote">
+                                “The present is theirs; the future, for which I really worked, is mine.”
+                            </blockquote>
+                            <cite class="quote-author">— Nikola Tesla</cite>
+                        </div>
+
+                        <div class="quote-slide">
+                            <blockquote class="main-quote">
+                                “My brain is only a receiver, in the Universe there is a core from which we obtain knowledge, strength and inspiration.”
+                            </blockquote>
+                            <cite class="quote-author">— Nikola Tesla</cite>
+                        </div>
+
+                        <div class="quote-slide">
+                            <blockquote class="main-quote">
+                                “Scientific endeavor is most grand when it strives toward the illumination and betterment of human consciousness.”
+                            </blockquote>
+                            <cite class="quote-author">— Nikola Tesla</cite>
+                        </div>
+
+                    </div>
+
+                    <div class="quote-controls">
+                        <button class="quote-btn" id="prevQuoteBtn" aria-label="Previous Quote"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="quote-dots" id="quoteDots">
+                            <span class="dot active" data-index="0"></span>
+                            <span class="dot" data-index="1"></span>
+                            <span class="dot" data-index="2"></span>
+                            <span class="dot" data-index="3"></span>
+                        </div>
+                        <button class="quote-btn" id="nextQuoteBtn" aria-label="Next Quote"><i class="fa-solid fa-chevron-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- INTERACTIVE SPARK LAB CANVAS DEMO -->
+        <section class="lab-section" id="lab">
+            <div class="container">
+                <div class="section-header text-center">
+                    <span class="section-subtitle">Interactive Physics Simulation</span>
+                    <h2 class="section-title">Tesla Coil Electric Arc Simulator</h2>
+                    <p class="section-intro">Click or drag anywhere on the canvas below to discharge interactive high-voltage electric arcs!</p>
+                </div>
+
+                <div class="canvas-card">
+                    <div class="canvas-toolbar">
+                        <div class="toolbar-title">
+                            <i class="fa-solid fa-bolt"></i> High Voltage Generator [Active]
+                        </div>
+                        <div class="canvas-controls">
+                            <label for="voltageRange">Arc Frequency:</label>
+                            <input type="range" id="voltageRange" min="1" max="10" value="5">
+                            <button id="clearArcsBtn" class="btn btn-sm btn-outline"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                        </div>
+                    </div>
+                    
+                    <div class="canvas-wrapper">
+                        <canvas id="teslaCanvas" width="900" height="400"></canvas>
+                        <div class="canvas-hint"><i class="fa-solid fa-hand-pointer"></i> Click inside to release electric lightning bolts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#top" class="footer-logo">NIKOLA TESLA TRIBUTE</a>
+                <p>Designed to honor the life and everlasting genius of Nikola Tesla (1856–1943).</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Reference & Sources</h4>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Nikola_Tesla" target="_blank" rel="noopener">Wikipedia Entry</a></li>
+                    <li><a href="https://www.britannica.com/biography/Nikola-Tesla" target="_blank" rel="noopener">Encyclopedia Britannica</a></li>
+                    <li><a href="https://www.teslamuseum.org/" target="_blank" rel="noopener">Nikola Tesla Museum</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 WebDev Tribute Series • Built with HTML5, CSS3 & JavaScript.</p>
+                <a href="#top" class="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-arrow-up"></i> Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
